@@ -1,0 +1,15 @@
+version: 2.1
+orbs:
+  rust: circleci/rust@1.5.0
+jobs:
+  test:
+    executor:
+      name: rust/default
+      tag: '1.52.1'
+    steps:
+      - checkout
+      - run: cargo --version
+workflows:
+  'Test, Build, Deploy and Release':
+    jobs:
+      - test
